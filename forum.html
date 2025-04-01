@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum - PyToolbox</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <header>
+        <!-- Navigation -->
+    </header>
+
+    <section class="forum-header">
+        <div class="container">
+            <h1>PyToolbox Community Forum</h1>
+            <p>Connect with other Python developers, ask questions, and share knowledge</p>
+            <div class="forum-search">
+                <input type="text" placeholder="Search discussions...">
+                <button class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-content">
+        <div class="container">
+            <div class="forum-grid">
+                <main class="forum-main">
+                    <div class="forum-actions">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-plus"></i> New Discussion</a>
+                        <div class="forum-filters">
+                            <select>
+                                <option>All Categories</option>
+                                <option>Data Science</option>
+                                <option>Web Development</option>
+                                <option>Automation</option>
+                                <option>DevOps</option>
+                                <option>General</option>
+                            </select>
+                            <select>
+                                <option>Most Recent</option>
+                                <option>Most Popular</option>
+                                <option>Most Replies</option>
+                                <option>Unanswered</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-discussions">
+                        <div class="discussion-item">
+                            <div class="discussion-votes">
+                                <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                                <span class="vote-count">42</span>
+                                <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <div class="discussion-content">
+                                <div class="discussion-meta">
+                                    <span class="discussion-category">Data Science</span>
+                                    <span class="discussion-solved"><i class="fas fa-check-circle"></i> Solved</span>
+                                </div>
+                                <h3 class="discussion-title"><a href="forum-post.html">Best practices for handling missing data in Pandas?</a></h3>
+                                <p class="discussion-excerpt">I'm working with a large dataset that has quite a few missing values. I've tried different approaches like dropping rows, filling with means, and using interpolation, but I'm not sure which is best for my use case...</p>
+                                <div class="discussion-info">
+                                    <div class="discussion-author">
+                                        <img src="images/avatars/user1.jpg" alt="User Avatar">
+                                        <span>Posted by <a href="#">data_explorer</a> 2 days ago</span>
+                                    </div>
+                                    <div class="discussion-stats">
+                                        <span><i class="fas fa-comment"></i> 18 replies</span>
+                                        <span><i class="fas fa-eye"></i> 243 views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="discussion-item">
+                            <div class="discussion-votes">
+                                <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                                <span class="vote-count">29</span>
+                                <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <div class="discussion-content">
+                                <div class="discussion-meta">
+                                    <span class="discussion-category">Web Development</span>
+                                </div>
+                                <h3 class="discussion-title"><a href="forum-post.html">Django vs. Flask: Which one to choose for a REST API?</a></h3>
+                                <p class="discussion-excerpt">I'm planning to build a REST API for a mobile app. I have experience with both Django and Flask, but I'm not sure which one would be better suited for this particular project. Django seems to have more built-in features, but Flask is more lightweight...</p>
+                                <div class="discussion-info">
+                                    <div class="discussion-author">
+                                        <img src="images/avatars/user2.jpg" alt="User Avatar">
+                                        <span>Posted by <a href="#">web_dev_guru</a> 4 days ago</span>
+                                    </div>
+                                    <div class="discussion-stats">
+                                        <span><i class="fas fa-comment"></i> 24 replies</span>
+                                        <span><i class="fas fa-eye"></i> 312 views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- More discussion items -->
+                    </div>
+                    
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </main>
+                
+                <aside class="forum-sidebar">
+                    <div class="sidebar-card forum-stats">
+                        <h3>Forum Statistics</h3>
+                        <ul>
+                            <li><i class="fas fa-users"></i> 12,345 members</li>
+                            <li><i class="fas fa-comments"></i> 5,678 discussions</li>
+                            <li><i class="fas fa-reply"></i> 34,567 replies</li>
+                            <li><i class="fas fa-clock"></i> Last post 5 minutes ago</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card top-contributors">
+                        <h3>Top Contributors</h3>
+                        <ul class="contributor-list">
+                            <li>
+                                <img src="images/avatars/user3.jpg" alt="User Avatar">
+                                <div class="contributor-info">
+                                    <h4>python_master</h4>
+                                    <span>1,234 contributions</span>
+                                </div>
+                                <span class="contributor-rank">1</span>
+                            </li>
+                            <li>
+                                <img src="images/avatars/user4.jpg" alt="User Avatar">
+                                <div class="contributor-info">
+                                    <h4>code_ninja</h4>
+                                    <span>987 contributions</span>
+                                </div>
+                                <span class="contributor-rank">2</span>
+                            </li>
+                            <li>
+                                <img src="images/avatars/user5.jpg" alt="User Avatar">
+                                <div class="contributor-info">
+                                    <h4>data_wizard</h4>
+                                    <span>876 contributions</span>
+                                </div>
+                                <span class="contributor-rank">3</span>
+                            </li>
+                            <li>
+                                <img src="images/avatars/user6.jpg" alt="User Avatar">
+                                <div class="contributor-info">
+                                    <h4>algo_expert</h4>
+                                    <span>765 contributions</span>
+                                </div>
+                                <span class="contributor-rank">4</span>
+                            </li>
+                            <li>
+                                <img src="images/avatars/user7.jpg" alt="User Avatar">
+                                <div class="contributor-info">
+                                    <h4>py_enthusiast</h4>
+                                    <span>654 contributions</span>
+                                </div>
+                                <span class="contributor-rank">5</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card trending-topics">
+                        <h3>Trending Topics</h3>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <span class="topic-name">Machine Learning with scikit-learn</span>
+                                    <span class="topic-count">42 discussions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="topic-name">FastAPI vs. Flask</span>
+                                    <span class="topic-count">38 discussions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="topic-name">Python 3.10 Features</span>
+                                    <span class="topic-count">35 discussions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="topic-name">Pandas Tips and Tricks</span>
+                                    <span class="topic-count">29 discussions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="topic-name">Async Programming in Python</span>
+                                    <span class="topic-count">27 discussions</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card forum-categories">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span class="category-name">Data Science</span>
+                                    <span class="category-count">1,234</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-globe"></i>
+                                    <span class="category-name">Web Development</span>
+                                    <span class="category-count">987</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-robot"></i>
+                                    <span class="category-name">Automation</span>
+                                    <span class="category-count">765</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-server"></i>
+                                    <span class="category-name">DevOps</span>
+                                    <span class="category-count">543</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span class="category-name">General</span>
+                                    <span class="category-count">2,149</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/forum.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* API Documentation Styles */
+.api-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2a5885 100%);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.api-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.api-header p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.api-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.api-content {
+    padding: 3rem 0;
+}
+
+.api-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+}
+
+.api-sidebar {
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.api-nav {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.api-nav h3 {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--dark-color);
+}
+
+.api-nav h3:first-child {
+    margin-top: 0;
+}
+
+.api-nav ul {
+    margin-bottom: 1.5rem;
+}
+
+.api-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.api-nav a {
+    display: block;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    color: var(--gray-color);
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.api-nav a:hover, .api-nav a.active {
+    background-color: rgba(55, 118, 171, 0.1);
+    color: var(--primary-color);
+}
+
+.api-main {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.api-section {
+    margin-bottom: 4rem;
+    scroll-margin-top: 100px;
+}
+
+.api-section:last-child {
+    margin-bottom: 0;
+}
+
+.api-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.api-section h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+}
+
+.api-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.api-section code {
+    background-color: #f6f8fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}
+
+.code-block {
+    background-color: #282c34;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.code-block code {
+    background: none;
+    padding: 0;
+    color: #abb2bf;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
+
+.api-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.api-table th, .api-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.api-table th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+.api-table tr:last-child td {
+    border-bottom: none;
+}
+
+.info-box {
+    background-color: #f0f7ff;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.info-box h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.endpoint {
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--light-gray-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.endpoint:last-child {
+    margin-bottom: 0;
+}
+
+.endpoint-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f6f8fa;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.endpoint-name {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.method {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-right: 1rem;
+}
+
+.method.get {
+    background-color: #61affe;
+}
+
+.method.post {
+    background-color: #49cc90;
+}
+
+.method.put {
+    background-color: #fca130;
+}
+
+.method.delete {
+    background-color: #f93e3e;
+}
+
+.endpoint-content {
+    padding: 1.5rem;
+}
+
+.endpoint-content h4 {
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.1rem;
+}
+
+.endpoint-content h4:first-child {
+    margin-top: 0;
+}
+
+@media (max-width: 992px) {
+    .api-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .api-sidebar {
+        position: static;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+    
+    .api-nav {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .api-header {
+        padding: 3rem 0;
+    }
+    
+    .api-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .api-main {
+        padding: 1.5rem;
+    }
+    
+    .api-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .api-section h3 {
+        font-size: 1.3rem;
+    }
+    
+    .endpoint-header {
+        flex-wrap: wrap;
+    }
+    
+    .endpoint-name {
+        width: 100%;
+        margin: 0.5rem 0 0;
+    }
+}
