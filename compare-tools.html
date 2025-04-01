@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Python Tools - PyToolbox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/compare.css">
+</head>
+<body>
+    <header>
+        <!-- Header content (same as other pages) -->
+    </header>
+
+    <section class="compare-header">
+        <div class="container">
+            <h1>Compare Python Tools</h1>
+            <p>Compare features, performance, and use cases to find the right tool for your project.</p>
+        </div>
+    </section>
+
+    <section class="compare-content">
+        <div class="container">
+            <div class="compare-actions">
+                <button class="btn btn-outline" id="addToolBtn">
+                    <i class="fas fa-plus"></i> Add Tool to Compare
+                </button>
+                <div class="compare-filters">
+                    <select id="compareCategory">
+                        <option value="all">All Categories</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="automation">Automation</option>
+                        <option value="devops">DevOps</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="comparison-table-wrapper">
+                <div class="comparison-table">
+                    <div class="comparison-header">
+                        <div class="comparison-feature-column">
+                            <h3>Features</h3>
+                        </div>
+                        <div class="comparison-tool-columns">
+                            <div class="comparison-tool">
+                                <div class="tool-header">
+                                    <img src="images/tools/pandas.png" alt="Pandas">
+                                    <h3>Pandas</h3>
+                                    <span class="tool-version">v1.4.2</span>
+                                    <button class="remove-tool-btn" data-tool-id="pandas">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="comparison-tool">
+                                <div class="tool-header">
+                                    <img src="images/tools/numpy.png" alt="NumPy">
+                                    <h3>NumPy</h3>
+                                    <span class="tool-version">v1.22.3</span>
+                                    <button class="remove-tool-btn" data-tool-id="numpy">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="comparison-tool">
+                                <div class="tool-header">
+                                    <img src="images/tools/matplotlib.png" alt="Matplotlib">
+                                    <h3>Matplotlib</h3>
+                                    <span class="tool-version">v3.5.1</span>
+                                    <button class="remove-tool-btn" data-tool-id="matplotlib">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-body">
+                        <!-- Overview Section -->
+                        <div class="comparison-section">
+                            <div class="comparison-section-title">
+                                <h4>Overview</h4>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Description</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <p>Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of Python.</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>NumPy is the fundamental package for scientific computing in Python, providing support for arrays, matrices, and mathematical functions.</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Primary Use Case</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <p>Data manipulation and analysis</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Numerical computing and array operations</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Data visualization and plotting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>GitHub Stars</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <span class="metric">35.2k</span>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <span class="metric">22.1k</span>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <span class="metric">16.8k</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>PyPI Downloads</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <span class="metric">42M / month</span>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <span class="metric">38M / month</span>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <span class="metric">15M / month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Features Section -->
+                        <div class="comparison-section">
+                            <div class="comparison-section-title">
+                                <h4>Features</h4>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Data Structures</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <p>Series, DataFrame, Panel</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Arrays, Matrices</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Figure, Axes, Artist</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Data Import/Export</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>CSV, Excel, SQL, JSON, Parquet, etc.</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Text files, binary files</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>PNG, PDF, SVG, etc.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Data Cleaning</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Comprehensive</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Limited</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Not applicable</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Statistical Functions</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Comprehensive</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Comprehensive</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Limited</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Visualization</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Basic plotting</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>None</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Comprehensive</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Performance Section -->
+                        <div class="comparison-section">
+                            <div class="comparison-section-title">
+                                <h4>Performance</h4>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Memory Efficiency</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Computation Speed</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Large Dataset Handling</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">2.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Parallel Processing</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Limited</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Good</span>
+                                    </div>
+                                    <div class="comparison-value feature-check">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Limited</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ecosystem Section -->
+                        <div class="comparison-section">
+                            <div class="comparison-section-title">
+                                <h4>Ecosystem</h4>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Documentation</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Community Support</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Integration with Other Tools</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Learning Curve Section -->
+                        <div class="comparison-section">
+                            <div class="comparison-section-title">
+                                <h4>Learning Curve</h4>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Beginner Friendliness</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Learning Resources</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>API Consistency</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">3.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Conclusion Section -->
+                        <div class="comparison-section">
+                            <div class="comparison-section-title">
+                                <h4>Conclusion</h4>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Best For</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <p>Data analysis, cleaning, and transformation with tabular data</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Scientific computing, mathematical operations, and array manipulation</p>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <p>Creating publication-quality visualizations and plots</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Overall Rating</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4.5/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <div class="rating">
+                                            <span class="rating-value">4/5</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Installation</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <button class="btn btn-primary install-btn" data-install="pip install pandas">
+                                            <i class="fas fa-download"></i> Install
+                                        </button>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <button class="btn btn-primary install-btn" data-install="pip install numpy">
+                                            <i class="fas fa-download"></i> Install
+                                        </button>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <button class="btn btn-primary install-btn" data-install="pip install matplotlib">
+                                            <i class="fas fa-download"></i> Install
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-feature">
+                                    <span>Documentation</span>
+                                </div>
+                                <div class="comparison-tool-columns">
+                                    <div class="comparison-value">
+                                        <a href="https://pandas.pydata.org/docs/" target="_blank" class="btn btn-outline">
+                                            <i class="fas fa-book"></i> View Docs
+                                        </a>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <a href="https://numpy.org/doc/stable/" target="_blank" class="btn btn-outline">
+                                            <i class="fas fa-book"></i> View Docs
+                                        </a>
+                                    </div>
+                                    <div class="comparison-value">
+                                        <a href="https://matplotlib.org/stable/contents.html" target="_blank" class="btn btn-outline">
+                                            <i class="fas fa-book"></i> View Docs
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-actions-bottom">
+                <button class="btn btn-primary" id="printComparisonBtn">
+                    <i class="fas fa-print"></i> Print Comparison
+                </button>
+                <button class="btn btn-outline" id="exportComparisonBtn">
+                    <i class="fas fa-file-export"></i> Export as PDF
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="add-tool-modal" id="addToolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Tool to Compare</h2>
+                <button class="close-btn" id="closeAddToolModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="search-tools">
+                    <input type="text" placeholder="Search for a tool..." id="toolSearchInput">
+                </div>
+                <div class="tool-selection">
+                    <h3>Popular Tools</h3>
+                    <div class="tool-selection-grid">
+                        <div class="tool-selection-item" data-tool-id="scikit-learn">
+                            <img src="images/tools/scikit-learn.png" alt="Scikit-learn">
+                            <h4>Scikit-learn</h4>
+                            <span class="tool-category">Data Science</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="tensorflow">
+                            <img src="images/tools/tensorflow.png" alt="TensorFlow">
+                            <h4>TensorFlow</h4>
+                            <span class="tool-category">Machine Learning</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="pytorch">
+                            <img src="images/tools/pytorch.png" alt="PyTorch">
+                            <h4>PyTorch</h4>
+                            <span class="tool-category">Machine Learning</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="flask">
+                            <img src="images/tools/flask.png" alt="Flask">
+                            <h4>Flask</h4>
+                            <span class="tool-category">Web Development</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="django">
+                            <img src="images/tools/django.png" alt="Django">
+                            <h4>Django</h4>
+                            <span class="tool-category">Web Development</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="seaborn">
+                            <img src="images/tools/seaborn.png" alt="Seaborn">
+                            <h4>Seaborn</h4>
+                            <span class="tool-category">Data Visualization</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="plotly">
+                            <img src="images/tools/plotly.png" alt="Plotly">
+                            <h4>Plotly</h4>
+                            <span class="tool-category">Data Visualization</span>
+                        </div>
+                        <div class="tool-selection-item" data-tool-id="requests">
+                            <img src="images/tools/requests.png" alt="Requests">
+                            <h4>Requests</h4>
+                            <span class="tool-category">Web</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancelAddTool">Cancel</button>
+                <button class="btn btn-primary" id="confirmAddTool" disabled>Add Selected Tool</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer content (same as other pages) -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/compare.js"></script>
+</body>
+</html>

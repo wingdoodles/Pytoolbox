@@ -166,4 +166,82 @@ function showNewDiscussionModal() {
             </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" id="cancelDiscussion">Cancel</button>
-                <button class="btn btn-primary" i
+                <button class="btn btn-primary" id="submitDiscussion">Post Discussion</button>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to the document
+    document.body.appendChild(modal);
+    
+    // Show the modal
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+    
+    // Handle close button
+    const closeBtn = modal.querySelector('.close-btn');
+    closeBtn.addEventListener('click', function() {
+        closeModal(modal);
+    });
+    
+    // Handle cancel button
+    const cancelBtn = modal.querySelector('#cancelDiscussion');
+    cancelBtn.addEventListener('click', function() {
+        closeModal(modal);
+    });
+    
+    // Handle form submission
+    const submitBtn = modal.querySelector('#submitDiscussion');
+    submitBtn.addEventListener('click', function() {
+        const form = document.getElementById('newDiscussionForm');
+        const title = document.getElementById('discussionTitle').value;
+        const category = document.getElementById('discussionCategory').value;
+        const content = document.getElementById('discussionContent').value;
+        const tags = document.getElementById('discussionTags').value;
+        
+        // Basic validation
+        if (!title || !category || !content) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        // In a real application, this would submit the form data to the server
+        console.log('New discussion:', { title, category, content, tags });
+        
+        // Show success message
+        modal.querySelector('.modal-body').innerHTML = `
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>Discussion Posted Successfully!</h3>
+                <p>Your discussion "${title}" has been posted to the ${category} category.</p>
+            </div>
+        `;
+        
+        // Change footer buttons
+        modal.querySelector('.modal-footer').innerHTML = `
+            <button class="btn btn-primary" id="viewDiscussion">View Discussion</button>
+        `;
+        
+        // Handle view discussion button
+        document.getElementById('viewDiscussion').addEventListener('click', function() {
+            // In a real application, this would redirect to the new discussion
+            closeModal(modal);
+            alert('In a real application, you would be redirected to your new discussion.');
+        });
+    });
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal(modal);
+        }
+    });
+}
+
+function closeModal(modal) {
+    modal.classList.remove('show');
+    setTimeout(() => {
+        document.body.removeChild(modal);
+    }, 300);
+}
