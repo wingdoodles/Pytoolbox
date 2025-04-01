@@ -1,150 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const topNav = document.querySelector('.topnav');
     
-    if (menuToggle && navMenu) {
+    if (menuToggle && topNav) {
         menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            if (topNav.className === "topnav") {
+                topNav.className += " responsive";
+            } else {
+                topNav.className = "topnav";
+            }
         });
     }
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (navMenu && navMenu.classList.contains('active') && 
-            !event.target.closest('.nav-menu') && 
+        if (topNav && topNav.classList.contains('responsive') && 
+            !event.target.closest('.topnav') && 
             !event.target.closest('.menu-toggle')) {
-            navMenu.classList.remove('active');
-            if (menuToggle) {
-                menuToggle.classList.remove('active');
-            }
+            topNav.className = "topnav";
         }
     });
     
-    // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        // Check for saved theme preference or use device preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            themeToggle.checked = savedTheme === 'dark';
-        } else {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeToggle.checked = true;
-            }
-        }
-        
-        // Theme switch event
-        themeToggle.addEventListener('change', function() {
-            if (this.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
+    // Handle dropdown clicks on mobile
+    const dropbtns = document.querySelectorAll('.dropbtn');
+    if (window.innerWidth <= 992) {
+        dropbtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (topNav.classList.contains('responsive')) {
+                    e.preventDefault();
+                    const dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        // Close all other dropdowns
+                        document.querySelectorAll('.dropdown-content').forEach(content => {
+                            content.style.display = "none";
+                        });
+                        dropdownContent.style.display = "block";
+                    }
+                }
+            });
         });
     }
-    
-    // Dropdown menus in mobile view
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const dropdown = this.nextElementSibling;
-            
-            // If in mobile view
-            if (window.innerWidth <= 992) {
-                dropdown.classList.toggle('show');
-                this.classList.toggle('active');
-            } else {
-                // Close all other dropdowns
-                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-                    if (menu !== dropdown) {
-                        menu.classList.remove('show');
-                        menu.previousElementSibling.classList.remove('active');
-                    }
-                });
-                
-                // Toggle this dropdown
-                dropdown.classList.toggle('show');
-                this.classList.toggle('active');
-            }
-        });
-    });
-    
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-                menu.classList.remove('show');
-                if (menu.previousElementSibling) {
-                    menu.previousElementSibling.classList.remove('active');
-                }
-            });
-        }
-    });
-    
-    // Initialize tooltips
-    const tooltips = document.querySelectorAll('[data-tooltip]');
-    tooltips.forEach(tooltip => {
-        tooltip.addEventListener('mouseenter', function() {
-            const tooltipText = this.getAttribute('data-tooltip');
-            
-            const tooltipElement = document.createElement('div');
-            tooltipElement.className = 'tooltip';
-            tooltipElement.textContent = tooltipText;
-            
-            document.body.appendChild(tooltipElement);
-            
-            const rect = this.getBoundingClientRect();
-            const tooltipRect = tooltipElement.getBoundingClientRect();
-            
-            tooltipElement.style.top = `${rect.top - tooltipRect.height - 10 + window.scrollY}px`;
-            tooltipElement.style.left = `${rect.left + (rect.width / 2) - (tooltipRect.width / 2)}px`;
-            
-            tooltipElement.classList.add('show');
-            
-            this.addEventListener('mouseleave', function onMouseLeave() {
-                tooltipElement.classList.remove('show');
-                
-                setTimeout(() => {
-                    document.body.removeChild(tooltipElement);
-                }, 200);
-                
-                this.removeEventListener('mouseleave', onMouseLeave);
-            });
-        });
-    });
-    
-    // Active link highlighting
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (linkPath && (
-            currentPath.endsWith(linkPath) || 
-            (linkPath !== 'index.html' && currentPath.includes(linkPath))
-        )) {
-            link.classList.add('active');
-            
-            // If in dropdown, also highlight parent
-            const dropdownParent = link.closest('.dropdown');
-            if (dropdownParent) {
-                const dropdownToggle = dropdownParent.querySelector('.dropdown-toggle');
-                if (dropdownToggle) {
-                    dropdownToggle.classList.add('active');
-                }
-            }
-        }
-    });
     
     // Search overlay toggle
     const searchToggle = document.querySelector('.search-toggle');
@@ -174,24 +72,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        const navMenu = document.querySelector('.nav-menu');
-    
-        if (navMenu) {
-            // Update top position based on header height
-            const headerHeight = document.querySelector('header').offsetHeight;
-            navMenu.style.top = headerHeight + 'px';
-            navMenu.style.height = `calc(100vh - ${headerHeight}px)`;
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        // Check for saved theme preference or use device preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeToggle.checked = savedTheme === 'dark';
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.checked = true;
+            }
         }
+        
+        // Theme switch event
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
     
-        if (window.innerWidth > 992) {
-            // Reset mobile menu state when returning to desktop view
-            if (navMenu && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                const menuToggle = document.querySelector('.menu-toggle');
-                if (menuToggle) {
-                    menuToggle.classList.remove('active');
+    // Active link highlighting
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.topnav a:not(.dropbtn)');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath && (
+            currentPath.endsWith(linkPath) || 
+            (linkPath !== 'index.html' && currentPath.includes(linkPath))
+        )) {
+            link.classList.add('active');
+            
+            // If in dropdown, also highlight parent
+            const dropdownParent = link.closest('.dropdown');
+            if (dropdownParent) {
+                const dropdownToggle = dropdownParent.querySelector('.dropbtn');
+                if (dropdownToggle) {
+                    dropdownToggle.classList.add('active');
                 }
             }
         }
