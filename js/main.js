@@ -176,10 +176,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle window resize
     window.addEventListener('resize', function() {
+        const navMenu = document.querySelector('.nav-menu');
+    
+        if (navMenu) {
+            // Update top position based on header height
+            const headerHeight = document.querySelector('header').offsetHeight;
+            navMenu.style.top = headerHeight + 'px';
+            navMenu.style.height = `calc(100vh - ${headerHeight}px)`;
+        }
+    
         if (window.innerWidth > 992) {
             // Reset mobile menu state when returning to desktop view
             if (navMenu && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
+                const menuToggle = document.querySelector('.menu-toggle');
                 if (menuToggle) {
                     menuToggle.classList.remove('active');
                 }

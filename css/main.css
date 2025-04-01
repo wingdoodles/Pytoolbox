@@ -11,7 +11,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    height: 60px;
 }
 
 .logo a {
@@ -22,23 +23,116 @@ header {
 }
 
 .logo img {
-    height: 40px;
-    margin-right: 0.75rem;
+    height: 32px;
+    margin-right: 0.5rem;
 }
 
 .logo span {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
+/* Navigation Styles */
+nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.nav-menu li {
+    position: relative;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
+    height: 100%;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover, 
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+/* Dropdown Menu */
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-toggle::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+}
+
+.dropdown-toggle.active::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    height: auto;
+}
+
+.dropdown-menu a {
+    padding: 0.5rem 1rem;
+    height: auto;
+}
+
+/* Header Actions */
 .header-actions {
     display: flex;
     align-items: center;
 }
 
 .search-toggle {
-    margin-right: 1.5rem;
-    font-size: 1.2rem;
+    margin-right: 1rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     cursor: pointer;
     transition: color 0.2s;
@@ -62,12 +156,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50px;
-    height: 26px;
+    width: 44px;
+    height: 22px;
     background-color: var(--bg-color);
     border-radius: 50px;
     position: relative;
-    padding: 0 5px;
+    padding: 0 4px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -75,8 +169,8 @@ header {
 .theme-toggle-label::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: var(--primary-color);
     top: 3px;
@@ -85,15 +179,52 @@ header {
 }
 
 .theme-toggle:checked + .theme-toggle-label::after {
-    transform: translateX(24px);
+    transform: translateX(22px);
 }
 
 .theme-toggle-label .fa-sun {
     color: #f1c40f;
+    font-size: 0.7rem;
 }
 
 .theme-toggle-label .fa-moon {
     color: #34495e;
+    font-size: 0.7rem;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Tooltip */
@@ -128,8 +259,65 @@ header {
     transform: translateY(0);
 }
 
-/* Responsive Header */
+/* Responsive Navigation */
 @media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        right: -300px;
+        width: 300px;
+        height: calc(100vh - 60px);
+        background-color: var(--card-bg);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 5;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    .nav-menu a {
+        padding: 0.75rem 1.5rem;
+        height: auto;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: var(--bg-color);
+        padding: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none;
+    }
+    
+    .dropdown-menu.show {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        padding-left: 2.5rem;
+    }
+    
     .header-content {
         position: relative;
     }
@@ -145,29 +333,46 @@ header {
 }
 
 @media (max-width: 576px) {
+    .header-content {
+        height: 50px;
+    }
+    
     .logo img {
-        height: 32px;
+        height: 28px;
     }
     
     .logo span {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .nav-menu {
+        top: 50px;
+        width: 100%;
+        right: -100%;
+        height: calc(100vh - 50px);
     }
     
     .search-toggle {
-        margin-right: 1rem;
+        margin-right: 0.75rem;
+        font-size: 1rem;
     }
     
     .theme-toggle-label {
-        width: 44px;
-        height: 24px;
+        width: 40px;
+        height: 20px;
     }
     
     .theme-toggle-label::after {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
     }
     
     .theme-toggle:checked + .theme-toggle-label::after {
         transform: translateX(20px);
+    }
+    
+    .menu-toggle {
+        width: 20px;
+        height: 16px;
     }
 }
